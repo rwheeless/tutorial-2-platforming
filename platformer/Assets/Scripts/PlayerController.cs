@@ -56,11 +56,6 @@ public class PlayerController : MonoBehaviour
         float vertMovement = Input.GetAxis("Vertical");
         rd2d.AddForce(new Vector2(hozMovement * speed, vertMovement * speed));
         isOnGround = Physics2D.OverlapCircle(groundcheck.position, checkRadius, allGround);
-
-        if (Input.GetKey("escape"))
-        {
-            Application.Quit();
-        }
     }
 
     void Update()
@@ -100,6 +95,11 @@ public class PlayerController : MonoBehaviour
         if (right == false && left == false)
         {
             anim.SetInteger("State", 0);
+        }
+
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
         }
     }
 
